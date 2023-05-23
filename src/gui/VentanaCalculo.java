@@ -103,7 +103,7 @@ public class VentanaCalculo extends JFrame {
 		tabbedPane.addTab("", null, panel, null);
 		panel.setLayout(null);
 
-		JLabel lblNewLabel_2 = new JLabel("NOTA MÍNIMA REGISTRADA:");
+		JLabel lblNewLabel_2 = new JLabel("NOTA MINIMA REGISTRADA:");
 		lblNewLabel_2.setFont(new Font("Century Gothic", Font.PLAIN, 11));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2.setBounds(23, 11, 383, 32);

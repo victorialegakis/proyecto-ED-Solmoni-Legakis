@@ -178,7 +178,7 @@ public class UserInterface {
 	}
 	
 	/**
-	 * Abre el menú de opciones pasando por parámetro la instancia del programa y el nombre de la materia.
+	 * Abre el menú de opciones.
 	 */
 
 	protected void abrirOpcionesDeRegistro() {

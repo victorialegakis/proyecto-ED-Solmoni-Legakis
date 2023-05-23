@@ -192,7 +192,7 @@ public class ListaDoblementeEnlazada<E> implements IPositionList<E> {
 		return ax;
 	}
   /**
-   * Clase interna de la ListaDoblementeEnlazada, que implmenta la interfaz IPosition y posee un tipo genérico E como parámetro
+   * Clase interna de la ListaDoblementeEnlazada, que implementa la interfaz IPosition y posee un tipo genérico E como parámetro
    * @author Lucas Solmoni y Victoria Legakis
    *
    * @param <E>-Tipo de los elementos

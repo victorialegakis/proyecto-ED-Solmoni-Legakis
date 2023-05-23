@@ -10,7 +10,7 @@ import tdas.tdalista.IPosition;
 import tdas.tdalista.IPositionList;
 
 /**
- *  Clase  que define las características del elemento que recorre por una colección
+ *  Clase que define las características del elemento que recorre por una colección
  *  
  * @author Lucas Solmoni y Victoria Legakis 
  * 

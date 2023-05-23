@@ -8,8 +8,8 @@ import tdas.tdapriorityqueue.IPriorityQueue;
 
 /**
  * Clase que  se encarga de definir una colección de elementos que soporta:
- *  – Inserción de elementos arbitraria
- *   – Eliminación de elementos en orden de prioridad (elelemento con 1era prioridad puede ser eliminado en cualquier momento
+ *  	– Inserción de elementos arbitraria
+ *   	– Eliminación de elementos en orden de prioridad.
  * @author Lucas Solmoni y Victoria Legakis
  *
  * @param <K> Tipo de las prioridades
@@ -28,23 +28,22 @@ public class ColaConPrioridad<K, V> implements IPriorityQueue<K, V> {
  * @param comp- Compara
  */
 	public ColaConPrioridad(int maxelement, Comparator<K> comp) {
-		// Ojo: ¡¡Mirar bien cómo se hace la creación del arreglo!!
-		// Creo un arreglo de maxelement entradas
+		
 
-		element = (Entrada<K, V>[]) new Entrada[maxelement];// aca en el pdf esta (Entrada<K,V> []) pero para mi no hace
-															// falta
-		this.comp = comp; // Me guardo el comparador del cliente
-		size = 0; // Digo que el árbol está vacío porque no tiene entradas
+		element = (Entrada<K, V>[]) new Entrada[maxelement];
+															
+		this.comp = comp; 
+		size = 0; 
 	}
 
 	@Override
 	public int size() {
-		return size; // Size es la cantidad de entradas del árbol
+		return size;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		return size == 0; // El árbol está vacío cuando no tiene entradas
+		return size == 0; 
 	}
 
 	@Override
@@ -52,86 +51,76 @@ public class ColaConPrioridad<K, V> implements IPriorityQueue<K, V> {
 		if (isEmpty())
 			throw new EmptyPriorityQueueException("Cola vacía");
 		return element[1];
-		// Recuerde que la componente 0 del arreglo no se usa
+		
 	}
 
 	@Override
 	public IEntry<K, V> insert(K key, V value) throws InvalidKeyException {
-		Entrada<K, V> entrada = new Entrada<K, V>(key, value); // Creo una entrada nueva
-		element[++size] = entrada; // Incremento size y pongo la entrada nueva al final del arreglo
-		// Burbujeo para arriba.
-		int i = size; // seteo indice i de la posicion corriente en arreglo que es la última
-		boolean seguir = true; // Bandera para saber cuándo encontré la ubicación de entrada
+		Entrada<K, V> entrada = new Entrada<K, V>(key, value); 
+		element[++size] = entrada;
+	
+		int i = size; // seteo indice i de la posicion corriente
+		boolean seguir = true; 
 		while (i > 1 && seguir) {
-			Entrada<K, V> elemActual = element[i]; // obtengo entrada i-ésima
-			Entrada<K, V> elemPadre = element[i / 2]; // obtengo el padre de la entrada i-ésima
+			Entrada<K, V> elemActual = element[i]; 
+			Entrada<K, V> elemPadre = element[i / 2]; 
 			if (comp.compare(elemActual.getKey(), elemPadre.getKey()) < 0) {
-				Entrada<K, V> aux = element[i]; // Intercambio entradas si están desordenadas
+				Entrada<K, V> aux = element[i]; 
 				element[i] = element[i / 2];
 				element[i / 2] = aux;
-				i /= 2; // Reinicializo i con el índice de su padre
-			} else // Si no pude intercambiar => la entrada ya estaba ordenada
-				seguir = false; // Aviso que terminé
-		} // fin while
+				i /= 2; 
+			} else 
+				seguir = false; 
+		} 
 		return entrada;
 	}
 
 	@Override
 	public IEntry<K, V> removeMin() throws EmptyPriorityQueueException {
-		int m = 1, hi, hd; // En m voy a computar la posición del mínimo de los hijos de i:
-		IEntry<K, V> entrada = min(); // Salvo valor a retornar.
+		int min = 1, hi, hd;
+		IEntry<K, V> entrada = min(); 
 
 		if (size == 1) {
 			element[1] = null;
 			size = 0;
 			return entrada;
 		} else {
-			// Paso la última entrada a la raíz y la borro del final del arreglo y
-			// decremento size:
 
 			element[1] = element[size];
 			element[size] = null;
 			size--;
 
-			// Burbujeo la nueva raíz hacia abajo buscando su ubicación correcta:
 
-			int i = 1; // i es mi ubicación corriente (Me ubico en la raíz)
-			boolean seguir = true; // Bandera para saber cuándo terminar
+			int i = 1; // seteo indice i 
+			boolean seguir = true; 
 
 			while (seguir) {
-				// Calculo la posición de los hijos izquierdo y derecho de i; y veo si existen
-				// realmente:
 				hi = i * 2;
 				hd = i * 2 + 1;
 				boolean tieneHijoIzquierdo = hi <= size();
 				boolean tieneHijoDerecho = hd <= size();
 				if (!tieneHijoIzquierdo)
-					seguir = false; // Si no hay hijo izquierdo, llegué a una hoja
+					seguir = false; 
 				else {
-					// En m voy a computar la posición del mínimo de los hijos de i:*/
 					if (tieneHijoDerecho) {
-						// Calculo cuál es el menor de los hijos usando el comparador de prioridades:
 						if (comp.compare(element[hi].getKey(), element[hd].getKey()) < 0)
-							m = hi;
+							min = hi;
 						else
-							m = hd;
+							min = hd;
 					} else
-						m = hi;
-					// Si hay hijo izquierdo y no hay hijo derecho, el mínimo es el izq.
-				} // Fin else
-					// Me fijo si hay que intercambiar el actual con el menor de sus hijos:
+						min = hi;
+				} 
 
-				if (comp.compare(element[i].getKey(), element[m].getKey()) > 0) {
-					Entrada<K, V> aux = element[i]; // Intercambio la entrada i con la m
-					element[i] = element[m];
-					element[m] = aux;
-					i = m; // Reinicializo i para en la siguiente iteración actualizar a partir de posición
-							// m.
+				if (comp.compare(element[i].getKey(), element[min].getKey()) > 0) {
+					Entrada<K, V> aux = element[i]; 
+					element[i] = element[min];
+					element[min] = aux;
+					i = min; 
 				} else
-					seguir = false; // Si la comparación de entrada i con la m dio bien, termino.
-			} // Fin while
+					seguir = false; 
+			} 
 			return entrada;
-		} // Fin método removeMin
+		}
 	}
 /**
  * Clase que implementa la interface IEntry y define el comportamiento de una entrada con dos datos
@@ -139,7 +128,7 @@ public class ColaConPrioridad<K, V> implements IPriorityQueue<K, V> {
  * @param <K>- Tipo de las claves
  * @param <V>-Tipo de los valores
  */
-	private class Entrada<K, V> implements IEntry<K, V> // Clase anidada
+	private class Entrada<K, V> implements IEntry<K, V> 
 	{
 		// Atributos de instancia
 		private K clave;

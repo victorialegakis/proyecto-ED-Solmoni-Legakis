@@ -33,6 +33,7 @@ public class AlumnoEliminado extends JFrame {
 				try {
 					AlumnoEliminado frame = new AlumnoEliminado(true);
 					frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -49,6 +50,8 @@ public class AlumnoEliminado extends JFrame {
 
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		setLocationRelativeTo(null);
+		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

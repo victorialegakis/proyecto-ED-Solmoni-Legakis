@@ -74,7 +74,7 @@ public class MenuOpciones extends JFrame {
 				try {
 					MenuOpciones frame = new MenuOpciones(programa, materia);
 					frame.setVisible(true);
-					frame.setLocationRelativeTo(null);
+					
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -96,6 +96,8 @@ public class MenuOpciones extends JFrame {
 		MenuOpciones.materia = materia;
 
 		setBounds(100, 100, 944, 670);
+		setLocationRelativeTo(null);
+		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

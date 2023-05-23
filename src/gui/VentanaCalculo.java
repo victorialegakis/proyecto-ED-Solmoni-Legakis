@@ -48,6 +48,7 @@ public class VentanaCalculo extends JFrame {
 				try {
 					VentanaCalculo frame = new VentanaCalculo(i, programa);
 					frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -64,9 +65,11 @@ public class VentanaCalculo extends JFrame {
 	public VentanaCalculo(int i, Programa nuevoPrograma) {
 		this.i = i;
 		programa = nuevoPrograma;
-
+		
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		setLocationRelativeTo(null);
+		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -36,6 +36,7 @@ public class AlumnoIngresado extends JFrame {
 				try {
 					AlumnoIngresado frame = new AlumnoIngresado(true, i);
 					frame.setVisible(true);
+					
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,9 +53,11 @@ public class AlumnoIngresado extends JFrame {
 	 */
 	public AlumnoIngresado(boolean b, int i) {
 		AlumnoIngresado.i = i;
-
+		
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
+		setLocationRelativeTo(null);
+		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

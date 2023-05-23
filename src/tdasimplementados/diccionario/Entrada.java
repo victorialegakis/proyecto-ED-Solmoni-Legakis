@@ -13,8 +13,8 @@ public class Entrada<K, V> implements IEntry<K, V> {
 	private V valor;
 /**
  * Constructor de la clase Entrada que tiene dos parámetros de tipo genérico
- * @param clave -Determina la clave de la entrada
- * @param valor-Determina el valor de la entrada
+ * @param clave Determina la clave de la entrada
+ * @param valor Determina el valor de la entrada
  */
 	public Entrada(K clave, V valor) {
 		this.clave = clave;
@@ -32,14 +32,14 @@ public class Entrada<K, V> implements IEntry<K, V> {
 	}
 /**
  * Método para establecer la clave de la entrada
- * @param clave-Que estableceremos para la entarda
+ * @param clave que estableceremos para la entarda
  */
 	public void setClave(K clave) {
 		this.clave = clave;
 	}
    /**
     * Método para establecer la clave de la entrada
-    * @param valor-Que estableceremos para la entrada
+    * @param valor que estableceremos para la entrada
     */
 	public void setValor(V valor) {
 		this.valor = valor;

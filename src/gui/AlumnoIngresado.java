@@ -17,10 +17,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 /**
- * 
+ * Clase que modela la ventana de la interfaz gráfica que muestra un mensaje al ingresar alumno.
+ *  
  * @author Lucas Solmoni & Victoria Legakis
  * 
- * Clase que modela la ventana de la interfaz gráfica que muestra un mensaje al ingresar alumno.
+ * 
  */
 public class AlumnoIngresado extends JFrame {
 

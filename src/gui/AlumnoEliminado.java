@@ -14,10 +14,11 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 /**
+ * Clase que modela la ventana de la interfaz gráfica que muestra un mensaje al eliminar alumno.
  * 
  * @author Lucas Solmoni & Victoria Legakis
  * 
- * Clase que modela la ventana de la interfaz gráfica que muestra un mensaje al eliminar alumno.
+ * 
  */
 
 public class AlumnoEliminado extends JFrame {

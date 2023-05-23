@@ -15,7 +15,7 @@ import tdas.tdalista.IPositionList;
  * @param <E> Tipo de los elementos de la clase
  */
 public class ListaDoblementeEnlazada<E> implements IPositionList<E> {
-	// Atributos de instancia
+	
 	protected int size;
 	protected DNodo<E> head;
 	protected DNodo<E> rabo;
@@ -76,9 +76,9 @@ public class ListaDoblementeEnlazada<E> implements IPositionList<E> {
 	}
 /**
  * Chequea si la posición es correcta en la lista
- * @param p-Posición a chequear
- * @return Un nodo // ver si pongo de tipo generico E
- * @throws InvalidPositionException -Si la posición es invalida
+ * @param p Posición a chequear
+ * @return Un nodo 
+ * @throws InvalidPositionException si la posición es invalida
  */
 	private DNodo<E> checkPosition(IPosition<E> p) throws InvalidPositionException {
 		try {

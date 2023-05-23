@@ -19,10 +19,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
+ * Esta clase corresponde a la interfaz gráfica del inicio del programa.
  * 
  * @author Lucas Solmoni & Victoria Legakis
  *
- *         Esta clase corresponde a la interfaz gráfica del inicio del programa.
+ *         
  */
 
 public class UserInterface {
@@ -178,7 +179,7 @@ public class UserInterface {
 	}
 	
 	/**
-	 * Abre el menú de opciones.
+	 * Abre el menú de opciones en una nueva ventana.
 	 */
 
 	protected void abrirOpcionesDeRegistro() {

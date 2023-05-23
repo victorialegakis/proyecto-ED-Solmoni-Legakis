@@ -1,7 +1,7 @@
 package tdas.tdadiccionario;
 
 /**
- * 
+ * Interface Entry
  * @author Lucas Solmoni & Victoria Legakis
  *
  * @param <K> key 

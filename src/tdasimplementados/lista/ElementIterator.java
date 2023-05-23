@@ -17,14 +17,14 @@ import tdas.tdalista.IPositionList;
  * @param <E> Tipo de los elementos 
  */
 public class ElementIterator<E> implements Iterator<E> {
-	// Atributos de instancia
-	protected IPositionList<E> list;// lista a iterar
-	protected IPosition<E> cursor;// Posicion del elemento corriente
+	
+	protected IPositionList<E> list;
+	protected IPosition<E> cursor;
 
 	/**
 	 * Constructor para el iterador de elementos
 	 *
-	 * @param l-Es una colección que implementa la interfaz PositionList y la
+	 * @param l Es una colección que implementa la interfaz PositionList y la
 	 *          vamos a utilizar para inicializar nuestra lista
 	 */
 	public ElementIterator(IPositionList<E> l) {

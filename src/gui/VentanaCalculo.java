@@ -24,10 +24,9 @@ import java.awt.event.ActionEvent;
 
 /**
  * 
+ * Esta clase corresponde a la ventana de la interfaz gráfica que permite consultar data.
  * @author Lucas Solmoni & Victoria Legakis
  * 
- * 	Esta clase corresponde a la ventana de la interfaz gráfica que permite consultar data.
- *
  */
 public class VentanaCalculo extends JFrame {
 
@@ -224,9 +223,16 @@ public class VentanaCalculo extends JFrame {
 		panel_2.add(btnVolver);
 
 	}
-
+	
+	
+	/**
+	 * Crea un formatter para el JTextFormattedField.
+	 * 
+	 * @param i String con formato a establecer para el campo de texto.
+	 * @return formatter del campo de texto.
+	 * 
+	 */
 	private MaskFormatter createFormater(String i) {
-		// TODO Auto-generated method stub
 		MaskFormatter formatter = null;
 		try {
 			formatter = new MaskFormatter(i);
@@ -236,6 +242,11 @@ public class VentanaCalculo extends JFrame {
 		}
 		return formatter;
 	}
+	
+	/**
+	 * Permite cambiar el panel que se muestra en la ventana
+	 * @param i número del panel.
+	 */
 
 	private void cambiarTab(int i) {
 		tabbedPane.setSelectedIndex(i - 1);
@@ -259,7 +270,6 @@ public class VentanaCalculo extends JFrame {
 		return programa.chequearLUExistente(lu);
 	}
 	/**
-	 * /**
 	 * Metodo que chequea si el LU es vacío.
 	 * 
 	 * @param lu entero que representa el LU de un alumno.

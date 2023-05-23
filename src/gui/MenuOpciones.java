@@ -65,7 +65,7 @@ public class MenuOpciones extends JFrame {
 	private static String materia;
 
 	/**
-	 * Ejecuta la aplicación
+	 * Ejecuta la aplicación.
 	 */
 	public static void main(String[] args) {
 
@@ -84,7 +84,7 @@ public class MenuOpciones extends JFrame {
 	}
 
 	/**
-	 * Crea el frame
+	 * Crea el frame.
 	 * 
 	 * @param nuevoPrograma instancia del programa
 	 * @param materia nombre de la materia ingresada

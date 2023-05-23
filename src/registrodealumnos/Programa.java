@@ -11,11 +11,10 @@ import excepciones.colaconprioridad.*;
 import tdas.tdapriorityqueue.*;
 
 /**
+ * Esta clase brinda las funcionalidades principales del programa.
  * @author Lucas Solmoni & Victoria Legakis
  *
- *         Esta clase brinda las funcionalidades principales del programa.
- *
- * @param <K,V> genericos. Tipo de elementos del atributo listaPares.
+ * @param <K>,<V> genericos. Tipo de elementos del atributo listaPares.
  */
 
 public class Programa {
@@ -36,12 +35,19 @@ public class Programa {
 		listaPares = new ListaDoblementeEnlazada<Pair<Integer, Integer>>();
 	}
 
-	// funcionalidad 1 - sigue en gui
+	/**
+	 * Permite acceder al nombre de la materia
+	 * @return nombre de la materia.
+	 */
 	public String getNombreMateria() {
 		return nombreMateria;
 	}
 
-	// funcionalidad 2
+	/**
+	 * Permite ingresar un alumno al registro.
+	 * @param key L.U del alumno
+	 * @param value nota del alumno
+	 */
 	public void ingresarAlumno(int key, int value) {
 		// checkClave(key);
 		Pair<Integer, Integer> ing = new Pair<Integer, Integer>(key, value);
@@ -71,27 +77,13 @@ public class Programa {
 	}
 
 	/**
-	 * 
+	 * Permite consultar una determinada nota por L.U.
 	 * @param key es el LU del alumno
 	 * @return la nota del alumno
-	 * @throws InvalidKeyException si la lista se encuentra vacía
-	 * @throws EmptyListException
-	 */
-
-	/*
-	 * el if-else yo lo pondria xq sabemos xq se pueden producir los errores
-	 * entonces verificamos q los valores q me pasaron como parametro esten
-	 * correctos pero al querer tirar una excepcion y capturar el mismo tipo de
-	 * excepcion ocurre un error
 	 * 
-	 * Capaz q iria xq vos estas usando una clase q sabes lo q hace pero no sabemos
-	 * como se implementa y no sabes tampoco sus metodos privados en teoria
 	 */
 
-	// funcionalidad 3
 	public int consultarNota(int key) {
-		// checkClave(key); // comprobamos que el alumno que nos pasaron no este
-		// eleminado del registro
 		try {
 			boolean encontre = false;
 			Pair<Integer, Integer> ax;
@@ -112,14 +104,13 @@ public class Programa {
 			return -1;
 		}
 	}
-	// private void checkClave(int key) throws InvalidKeyException {
-	// if(key==0) throw new InvalidKeyException("Clave nula");
-	// }
 
-	// funcionalidad 4
+	/**
+	 * Permite eliminar un alumno del registro.
+	 * @param key clave del alumno.
+	 */
 	public void eliminarAlumno(int key) {
-		// if(listaPares.isEmpty()==false) {
-		// checkClave(key);
+		
 		try {
 			IPosition<Pair<Integer, Integer>> ini = listaPares.first();
 			IPosition<Pair<Integer, Integer>> fin = listaPares.last();
@@ -142,15 +133,18 @@ public class Programa {
 	}
 	// }
 
-	// funcionalidad 5 - sigue en gui
+	/**
+	 * Permite visualizar los alumnos en la interfaz gráfica.
+	 * @return lista de posiciones de alumnos.
+	 */
 	public Iterable<IPosition<Pair<Integer, Integer>>> visualizarAlumnos() {
-		// if (listaPares.size()== 0) {
-		// throw new EmptyListException("Lista vacía");
-		// }
 		return listaPares.positions();
 	}
 
-	// funcionalidad 6
+	/**
+	 * Permite calcular el promedio de notas del registro.
+	 * @return promedio.
+	 */
 	public double calcularPromedio() {
 		int cantidadEntradas = listaPares.size();
 		double sumatoriaNotas = 0;
@@ -165,7 +159,10 @@ public class Programa {
 
 	}
 
-	// funcionalidad 7
+	/**
+	 * Permite calcular la mínima nota del registro.
+	 * @return nota mínima del registro.
+	 */
 	public Integer minNota() {
 		try {
 			int cantidadEntradas = listaPares.size();
@@ -184,7 +181,10 @@ public class Programa {
 
 	}
 
-	// funcionalidad 8
+	/**
+	 * Permite ordenar la lista de mayor a menor según las notas de los alumnos.
+	 * @return lista ordenada de mayor a menor.
+	 */
 	public Iterable<Pair<Integer, Integer>> alumnosDeMayorAMenor() {
 
 		IPositionList<Pair<Integer, Integer>> lista2 = new ListaDoblementeEnlazada<Pair<Integer, Integer>>();
@@ -194,7 +194,6 @@ public class Programa {
 			try {
 				cp.insert(p.element().getValue(), p.element().getKey());
 			} catch (InvalidKeyException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
@@ -206,7 +205,6 @@ public class Programa {
 			try {
 				e = cp.removeMin();
 			} catch (EmptyPriorityQueueException exc) {
-				// TODO Auto-generated catch block
 				exc.printStackTrace();
 			}
 			Pair<Integer, Integer> pair = new Pair<Integer, Integer>(e.getValue(), e.getKey());
@@ -217,13 +215,16 @@ public class Programa {
 
 	}
 
-	// funcionalidad 9
+	/**
+	 * Permite ver todos los alumnos que tienen una nota determinada.
+	 * @param num representa la nota sobre la cuál se quiere filtrar
+	 * @return lista de alumnos con la nota elegida.
+	 */
 
 	public IPositionList<Pair<Integer, Integer>> notaDet(Integer num) {
 		IPositionList<Pair<Integer, Integer>> lista2 = new ListaDoblementeEnlazada<Pair<Integer, Integer>>();
 		Iterable<IEntry<Integer, Integer>> ret = null;
-		Integer ax = num;
-		// if (ax >= 0 && ax <= 10) {
+		
 		IDictionary<Integer, Integer> dic = new DiccionarioHashAbierto<Integer, Integer>();
 		try {
 			for (Pair<Integer, Integer> p : listaPares) {
@@ -243,11 +244,11 @@ public class Programa {
 		return lista2;
 	}
 
-	// funcionalidad 10
+	/**
+	 * Permite ver los alumnos aprobados de la lista.
+	 * @return lista de alumnos aprobados.
+	 */
 	public Iterable<Pair<Integer, Integer>> aprobados() {
-		// if (listaPares.size()== 0) {
-		// throw new EmptyListException("Lista vacía");
-		// }
 		IPositionList<Pair<Integer, Integer>> aprobados = new ListaDoblementeEnlazada<>();
 		for (IPosition<Pair<Integer, Integer>> pair : listaPares.positions()) {
 			int valor = pair.element().getValue();
@@ -257,11 +258,11 @@ public class Programa {
 		}
 		return aprobados;
 	}
-
+	/**
+	 * Permite ver los alumnos desaprobados de la lista.
+	 * @return lista de alumnos desaprobados.
+	 */
 	public Iterable<Pair<Integer, Integer>> desaprobados() {
-		// if (listaPares.size()== 0) {
-		// throw new EmptyListException("Lista vacía");
-		// }
 		IPositionList<Pair<Integer, Integer>> desaprobados = new ListaDoblementeEnlazada<>();
 		for (IPosition<Pair<Integer, Integer>> pair : listaPares.positions()) {
 			int valor = (Integer) pair.element().getValue();
@@ -272,10 +273,14 @@ public class Programa {
 		return desaprobados;
 
 	}
+	
+	/**
+	 * Chequea si el LU pasado por parámetro existe en el registro. 
+	 * @param lu entero que representa un legajo
+	 * @return boolean que representa la existencia del LU.
+	 */
 
 	public boolean chequearLUExistente(int lu) {
-		// TODO Auto-generated method stub
-		int ax = lu;
 		if (listaPares.size() == 0) {
 			return false;
 		}
@@ -292,7 +297,6 @@ public class Programa {
 			}
 			return true;
 		} catch (InvalidKeyException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}

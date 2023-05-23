@@ -5,11 +5,12 @@ import excepciones.colaconprioridad.EmptyPriorityQueueException;
 import excepciones.diccionario.InvalidKeyException;
 import tdas.tdadiccionario.IEntry;
 import tdas.tdapriorityqueue.IPriorityQueue;
+import tdasimplementados.diccionario.Entrada;
 
 /**
  * Clase que  se encarga de definir una colección de elementos que soporta:
- *  	– Inserción de elementos arbitraria
- *   	– Eliminación de elementos en orden de prioridad.
+ *  	Inserción de elementos arbitraria
+ *   	Eliminación de elementos en orden de prioridad.
  * @author Lucas Solmoni y Victoria Legakis
  *
  * @param <K> Tipo de las prioridades
@@ -23,9 +24,9 @@ public class ColaConPrioridad<K, V> implements IPriorityQueue<K, V> {
 	protected int size;
 
 /**
- * Constructor de la cola con prioridad
- * @param maxelement- Determina el tamaño del arreglo
- * @param comp- Compara
+ * Constructor de la cola con prioridad.
+ * @param maxelement Determina el tamaño del arreglo
+ * @param comp Compara
  */
 	public ColaConPrioridad(int maxelement, Comparator<K> comp) {
 		
@@ -122,42 +123,4 @@ public class ColaConPrioridad<K, V> implements IPriorityQueue<K, V> {
 			return entrada;
 		}
 	}
-/**
- * Clase que implementa la interface IEntry y define el comportamiento de una entrada con dos datos
- * @author Lucas Solmoni y Victoria Legakis
- * @param <K>- Tipo de las claves
- * @param <V>-Tipo de los valores
- */
-	private class Entrada<K, V> implements IEntry<K, V> 
-	{
-		// Atributos de instancia
-		private K clave;
-		private V valor;
-
-	/**
-	 * Constructor de la entrada
-	 * @param clave que va a contener la entrada
-	 * @param valor que va a contener la entrada
-	 */
-		public Entrada(K clave, V valor) {
-			this.clave = clave;
-			this.valor = valor;
-		}
-
-		@Override
-		public K getKey() {
-			return clave;
-		}
-
-		@Override
-		public V getValue() {
-			return valor;
-		}
-
-		@Override
-		public String toString() {
-			return "(" + clave + ", " + valor + ")";
-		}
-	}
-
 }

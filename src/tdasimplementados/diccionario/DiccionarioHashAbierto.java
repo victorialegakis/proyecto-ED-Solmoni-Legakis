@@ -27,7 +27,7 @@ public class DiccionarioHashAbierto<K, V> implements IDictionary<K, V> {
 	protected int N;
 	protected static final float carga = 0.5F;
 
-	@SuppressWarnings("unchecked")
+	
 	/**
 	 * Constructor para el diccionario implementado con una tabla de Hash abierta
 	 */
@@ -51,8 +51,8 @@ public class DiccionarioHashAbierto<K, V> implements IDictionary<K, V> {
 	}
 /**
  * Transforma la clave en un número, el cual identifica la posición(casilla o cubeta) donde la tabla hash localiza el valor deseado ,para luego devolverlp
- * @param k- Clave
- * @return-Un número 
+ * @param k Clave
+ * @return Un número 
  * @throws InvalidKeyException-Sucede cuando el cliente ingresa una clave incorrecta
  */
 	private int hash(K k) throws InvalidKeyException {
@@ -62,7 +62,7 @@ public class DiccionarioHashAbierto<K, V> implements IDictionary<K, V> {
 		return Math.abs(k.hashCode() % N);
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	/**
 	 * Agranda el tamaño de la tabla hash
 	 */
@@ -82,8 +82,8 @@ public class DiccionarioHashAbierto<K, V> implements IDictionary<K, V> {
 	}
 /**
  * Método que se encarga de encontrar el siguiente número primo
- * @param primo-Número al que le queremos encontrar su siguiente número primo
- * @return-El siguiente número primo del numero ingresado por parámetro
+ * @param primo Número al que le queremos encontrar su siguiente número primo
+ * @return El siguiente número primo del numero ingresado por parámetro
  */
 	private int nextPrimo(int primo) {
 		boolean encontre = false;
@@ -149,7 +149,7 @@ public class DiccionarioHashAbierto<K, V> implements IDictionary<K, V> {
 	@Override
 	public IEntry<K, V> remove(IEntry<K, V> e) throws InvalidEntryException {
 		if (e == null)
-			throw new InvalidEntryException("entrada invalida");
+			throw new InvalidEntryException("Entrada invalida");
 		IEntry<K, V> toret = null;
 		boolean encontre = false;
 		try {
@@ -163,13 +163,13 @@ public class DiccionarioHashAbierto<K, V> implements IDictionary<K, V> {
 						n--;
 
 					} catch (InvalidPositionException e1) {
-						// TODO Auto-generated catch block
+
 						e1.printStackTrace();
 					}
 				}
 			}
 			if (!encontre)
-				throw new InvalidEntryException("no se encontro la entrada");
+				throw new InvalidEntryException("No se encontro la entrada");
 			return toret;
 		} catch (InvalidKeyException e1) {
 			e1.getMessage();

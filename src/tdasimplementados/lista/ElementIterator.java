@@ -28,12 +28,12 @@ public class ElementIterator<E> implements Iterator<E> {
 	 *          vamos a utilizar para inicializar nuestra lista
 	 */
 	public ElementIterator(IPositionList<E> l) {
-		list = l; // guardo la referencia de la lista a iterar
+		list = l; 
 		if (list.isEmpty())
 			cursor = null;
 		else
 			try {
-				// Sino la posición corriente es la primera de la lista
+				
 				cursor = list.first();
 			} catch (EmptyListException e) {
 				e.printStackTrace();
@@ -42,17 +42,17 @@ public class ElementIterator<E> implements Iterator<E> {
 
 	@Override
 	public boolean hasNext() {
-		// Hay siguiente si el cursor no está más allá de la última posición
+		
 		return cursor != null;
 	}
 
 	@Override
 	public E next() throws NoSuchElementException {
-		if (cursor == null) // Si el cursor es null, el cliente no testeó que hasNext fuera true
+		if (cursor == null) 
 			throw new NoSuchElementException("Error: No hay siguiente");
-		E elem = cursor.element(); // Salvo el elemento corriente
+		E elem = cursor.element(); 
 		try {
-			// Avanzo a la siguiente posición
+			
 			cursor = (cursor == list.last()) ? null : list.next(cursor);
 
 		} catch (EmptyListException e) {

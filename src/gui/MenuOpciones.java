@@ -557,7 +557,7 @@ public class MenuOpciones extends JFrame {
 			}
 		});
 
-		JLabel lblNewLabel_12 = new JLabel("MÍNIMA NOTA");
+		JLabel lblNewLabel_12 = new JLabel("MINIMA NOTA");
 		lblNewLabel_12.setBackground(Color.WHITE);
 		lblNewLabel_12.addMouseListener(new MouseAdapter() {
 			@Override

@@ -3,6 +3,6 @@
 
 <i>A continuación, dejamos la documentación asociada al mismo:</i>
 
-[MINUTAS DEL PROYECTO - Solmoni, Legakis - ED 2023](https://github.com/victorialegakis/proyecto-ED-Solmoni-Legakis/files/11546691/MINUTAS.DEL.PROYECTO.-.Solmoni.Legakis.-.ED.2023.pdf)
+[Manual de Usuario - Proyecto ED - Solmoni, Legakis - 2023.pdf](https://github.com/victorialegakis/proyecto-ED-Solmoni-Legakis/files/11837383/Manual.de.Usuario.-.Proyecto.ED.-.Solmoni.Legakis.-.2023.pdf)
 
-[Manual de Usuario - Proyecto ED - Solmoni, Legakis - ED 2023](https://github.com/victorialegakis/proyecto-ED-Solmoni-Legakis/files/11546699/Manual.de.Usuario.-.Proyecto.ED.-.Solmoni.Legakis.-.2023.pdf)
+[MINUTAS DEL PROYECTO - LEGAKIS. SOLMONI - EDD 2023.pdf](https://github.com/victorialegakis/proyecto-ED-Solmoni-Legakis/files/11837384/MINUTAS.DEL.PROYECTO.-.LEGAKIS.SOLMONI.-.EDD.2023.pdf)
